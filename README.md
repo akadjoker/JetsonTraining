@@ -190,7 +190,18 @@ Generates a visual representation of the steering wheel rotated according to the
 ```bash
 # Install dependencies
 pip install tensorflow opencv-python numpy pandas matplotlib scikit-learn imgaug
+
 ```
+
+### Fix imgaug
+Fix imgaug compatibility with newer NumPy/Pandas versions:
+
+Modify the following lines in the imgaug library's source file (typically located in your Python environment's site-packages directory):
+# In imgaug.py, change:
+NP_FLOAT_TYPES = {np.float16, np.float32, np.float64}
+NP_INT_TYPES = {np.int8, np.int16, np.int32, np.int64}
+NP_UINT_TYPES = {np.uint8, np.uint16, np.uint32, np.uint64}
+ 
 
 ### 5.2 Data Collection
 1. Organize your data according to the expected structure
